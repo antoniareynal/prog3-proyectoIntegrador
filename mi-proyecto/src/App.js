@@ -1,7 +1,11 @@
+import React from "react";
+
+import Navbar from './Componentes/Navbar/Navbar'
+
 
 function App() {
   return (
-   <h1>Hola Mundo.asdad</h1>
+   <Navbar/>
   );
 }
 

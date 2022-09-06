@@ -1,13 +1,15 @@
 import React from "react";
 import Footer from "./Componentes/Footer/Footer"
 import Navbar from './Componentes/Navbar/Navbar'
+import Home from './Pages/Home'
 
 
 function App() {
   return (
    <React.Fragment>
-      <div><Navbar/></div>
-      <div><Footer/></div>
+      <Navbar/>
+      <Home/>
+      <Footer/>
 
    </React.Fragment>
   

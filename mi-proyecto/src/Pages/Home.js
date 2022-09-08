@@ -40,6 +40,14 @@ class Home extends Component{
                     </article>
                 </section>
 
+                <div>
+                    <section>
+                        <article>
+                            {this.state.upComingMovies.map((UpcomingMovie, idx) => <CardUpcoming key ={ UpcomingMovie + idx} UpcomingData = {UpcomingMovie}/>)}
+                        </article>
+                    </section>
+                </div>
+
                 
             </React.Fragment>
         )

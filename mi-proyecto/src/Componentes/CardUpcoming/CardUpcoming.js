@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 
-class CardMovie extends Component{
+class CardUpcoming extends Component{
     constructor(props){
     super(props);
     this.state={
@@ -22,11 +22,11 @@ class CardMovie extends Component{
         return (
             <React.Fragment>
                 
-                <h3>{this.props.movieData.title}</h3>
+                <h3>{this.props.dataUpcoming.title}</h3>
                     <div className="photo-container">
-                        <img src={`https://image.tmdb.org/t/p/w200/${this.props.movieData.poster_path}`} alt=""/>
+                        <img src={`https://image.tmdb.org/t/p/w200/${this.props.dataUpcoming.poster_path}`} alt=""/>
                     </div>
-                    <p>{this.props.movieData.release_date}</p>
+                    <p>{this.props.dataUpcoming.release_date}</p>
                     
             </React.Fragment>
         )
@@ -34,4 +34,4 @@ class CardMovie extends Component{
 
 }
 
-export default CardMovie;
+export default CardUpcoming;

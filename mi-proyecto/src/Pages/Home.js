@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
 
+
 class Home extends Component{
     constructor() {
     super();
@@ -32,12 +33,14 @@ class Home extends Component{
     render(){
         return(
             <React.Fragment>
-                <h1 className="tituloPrincipal">Películas populares</h1>
+                <h1 className="tituloPrincipal">Popular Movies</h1>
                 <section className="peliculasSeries peliculasP">
                     <article>
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
                     </article>
                 </section>
+
+                
             </React.Fragment>
         )
     }

@@ -31,14 +31,14 @@ class Home extends Component{
     }
     render(){
         return(
-            <React.Fragment>
+            
                 <article className="peliculasSeries peliculasP">
                     <h1 className="tituloPrincipal">Películas populares</h1>
                     <ul>
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
                     </ul>
                 </article>
-            </React.Fragment>
+            
         )
     }
 }

@@ -11,7 +11,7 @@ function Navbar(){
                 <ul>
                     <li> <a href="index.html">Home |</a> </li>
                     <li> <a href="favorite.html">Favoritos |</a> </li>
-                    <li> <a href="genres.html">Géneros |</a> </li>
+                    <li> <a href="genres.html">Ver Todas |</a> </li>
                 </ul>
             </div>
         </nav>

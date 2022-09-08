@@ -1,17 +1,18 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Navbar(){
     return (
         <nav className="headerDesktop">
             <div className="novaLogo">
-                <a href="index.html"><img src="./img/novaLogo.png" alt="Logo NOVA"/></a>
+                <img src="./img/novaLogo.png" alt="Logo NOVA"/>
             </div>
 
             <div className="menuDesktop">
                 <ul>
-                    <li> <a href="index.html">Home |</a> </li>
-                    <li> <a href="favorite.html">Favoritos |</a> </li>
-                    <li> <a href="genres.html">Ver Todas |</a> </li>
+                    <li> Home | </li>
+                    <li> Favoritos | </li>
+                    <li> Ver Todas | </li>
                 </ul>
             </div>
         </nav>

@@ -15,13 +15,13 @@ class CardMovie extends Component{
             verMas: !this.state.verMas
         })
     }
-
+    
     render(){
         return (
             <React.Fragment>
                 <h3>{this.props.movieData.title}</h3>
                     <div className="photo-container">
-                        <a href="./detailMovie.html"><img src={this.props.movieData.poster_path} alt="Sponge Bob"/></a>
+                        <img src={`https://image.tmdb.org/t/p/w200/${this.props.movieData.poster_path}`} alt=""/>
                     </div>
                     <p>{this.props.movieData.release_date}</p>
             </React.Fragment>

@@ -4,7 +4,7 @@ import CardMovie from '../Componentes/CardMovie/CardMovie'
 class Home extends Component{
     constructor() {
     super();
-    this.State = {
+    this.state = {
         moviesPopular: [],
         upComingMovies: []
     }
@@ -14,14 +14,14 @@ class Home extends Component{
     componentDidMount(){
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=1')
         .then(response => response.json())
-        .then(data => this.State(
-            {moviesPopular: data.results}
+        .then(data => this.setState(
+            {moviesPopular: data.results},
         ))
 
         .then(()=>{
-            fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c &language=en-US&page=1')
+            fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=1')
             .then(response => response.json())
-            .then(data => this.State(
+            .then(data => this.setState(
                 {upComingMovies: data.data}
             ))
             .catch(error => console.log(error));
@@ -31,14 +31,14 @@ class Home extends Component{
     }
     render(){
         return(
-            
-                <article className="peliculasSeries peliculasP">
-                    <h1 className="tituloPrincipal">Películas populares</h1>
-                    <ul>
+            <React.Fragment>
+                <h1 className="tituloPrincipal">Películas populares</h1>
+                <section className="peliculasSeries peliculasP">
+                    <article>
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
-                    </ul>
-                </article>
-            
+                    </article>
+                </section>
+            </React.Fragment>
         )
     }
 }

@@ -23,7 +23,7 @@ class Home extends Component{
             fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=1')
             .then(response => response.json())
             .then(data => this.setState(
-                {upComingMovies: data.data}
+                {upcomingMovies: data.results}
             ))
             .catch(error => console.log(error));
         })
@@ -35,20 +35,14 @@ class Home extends Component{
             <React.Fragment>
                 <h1 className="tituloPrincipal">Popular Movies</h1>
                 <section className="peliculasSeries peliculasP">
-                    <article>
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
-                    </article>
                 </section>
 
                 
-                <h1 className="tituloPrincipal">Popular Movies</h1>
+                <h1 className="tituloPrincipal">Upcoming Movies</h1>
                     <section className="peliculasSeries peliculasP">
-                        <article>
-                            {this.state.upcomingMovies.map((newMovie, idx) => <CardUpcoming key ={ newMovie + idx} upcomingData = {newMovie}/>)}
-                        </article>
+                            {this.state.upcomingMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
                     </section>
-                
-
                 
             </React.Fragment>
         )

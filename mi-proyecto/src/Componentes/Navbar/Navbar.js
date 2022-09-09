@@ -10,9 +10,10 @@ function Navbar(){
 
             <div className="menuDesktop">
                 <ul>
-                    <li> Home | </li>
-                    <li> Favoritos | </li>
-                    <li> Ver Todas | </li>
+                    <li><Link to='/'> Home | </Link></li>
+                    <li><Link to='/favoritos'> Favoritos | </Link></li>
+                    <li><Link to='/popularmovies'>Popular Movie  |</Link>  </li>
+                    <li><Link to='/upcomingmovies'>Upcoming Movies</Link>  </li> 
                 </ul>
             </div>
         </nav>

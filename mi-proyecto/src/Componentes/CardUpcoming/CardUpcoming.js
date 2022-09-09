@@ -21,13 +21,13 @@ class CardUpcoming extends Component{
     render(){
         return (
             <React.Fragment>
-                
+                <article>  
                 <h3>{this.props.upcomingData.title}</h3>
                     <div className="photo-container">
                         <img src={`https://image.tmdb.org/t/p/w200/${this.props.upcomingData.poster_path}`} alt=""/>
                     </div>
                     <p>{this.props.upcomingData.release_date}</p>
-                    
+                    </article>
             </React.Fragment>
         )
     }

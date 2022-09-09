@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
-
+import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming'
 
 class Home extends Component{
     constructor() {
     super();
     this.state = {
         moviesPopular: [],
-        upComingMovies: []
+        upcomingMovies: []
     }
     }
 
@@ -40,13 +40,14 @@ class Home extends Component{
                     </article>
                 </section>
 
-                <div>
-                    <section>
+                
+                <h1 className="tituloPrincipal">Popular Movies</h1>
+                    <section className="peliculasSeries peliculasP">
                         <article>
-                            {this.state.upComingMovies.map((UpcomingMovie, idx) => <CardUpcoming key ={ UpcomingMovie + idx} UpcomingData = {UpcomingMovie}/>)}
+                            {this.state.upcomingMovies.map((newMovie, idx) => <CardUpcoming key ={ newMovie + idx} upcomingData = {newMovie}/>)}
                         </article>
                     </section>
-                </div>
+                
 
                 
             </React.Fragment>

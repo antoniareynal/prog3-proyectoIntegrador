@@ -11,8 +11,8 @@ function Navbar(){
             <div className="menuDesktop">
                 <ul>
                     <li><Link to='/'> Home | </Link></li>
-                    <li><Link to='/favoritos'> Favoritos | </Link></li>
-                    <li><Link to='/popularmovies'>Popular Movie  |</Link>  </li>
+                    <li><Link to='/favoritos'> Favourites | </Link></li>
+                    <li><Link to='/popularmovies'>Popular Movies  |</Link>  </li>
                     <li><Link to='/upcomingmovies'>Upcoming Movies</Link>  </li> 
                 </ul>
             </div>

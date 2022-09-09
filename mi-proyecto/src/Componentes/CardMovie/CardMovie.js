@@ -27,7 +27,7 @@ class CardMovie extends Component{
                         <img src={`https://image.tmdb.org/t/p/w200/${this.props.movieData.poster_path}`} alt=""/>
                     </div>
                     <p>{this.props.movieData.release_date}</p>
-                    
+                
             </React.Fragment>
         )
     }

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import '../Componentes/CardMovie/CardMovie'
+import CardMovie from '../Componentes/CardMovie/CardMovie'
 
 class PopularMovies extends Component {
     constructor(){
         super();
         this.state = {
-            pMovies: []
+            pMovies: [],
+            
         }
     }
 
@@ -24,19 +25,24 @@ verMas(){
         .then(data => this.setState({pMovies: data.results}
         ))
         .catch(error => console.log(error));
+        
 }
 
 render(){
-    console.log('esto es peliculas')
     return(
+        
         <React.Fragment>
+            
+        <h1 className="tituloPrincipal">Popular Movies</h1>
+        <section className="peliculasSeries peliculasP">
+                {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
+        </section>
 
-            <h1 className="tituloPrincipal">Popular Movies</h1>
-                <section className="peliculasSeries peliculasP">
-                        <article>
-                            
-                        </article>
-                </section>
+
+        <button className="boton-vermas"onClick={()=> this.verMas()}>Load more</button>
+
+    
+
         </React.Fragment>
     )
 }

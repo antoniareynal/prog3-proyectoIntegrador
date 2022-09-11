@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
 import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming'
+import {Link} from 'react-router-dom';
 
 class Home extends Component{
     constructor() {
@@ -38,11 +39,16 @@ class Home extends Component{
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
                 </section>
 
-                
+               <Link to='/popularmovies'> <button className="boton-vermas-home"> See all popular movies</button></Link>
+
                 <h1 className="tituloPrincipal">Upcoming Movies</h1>
                     <section className="peliculasSeries peliculasP">
                             {this.state.upcomingMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
                     </section>
+                
+                   <Link to ='/upcomingmovies'> <button className="boton-vermas-home"> See all upcoming movies</button></Link>
+
+                
                 
             </React.Fragment>
         )

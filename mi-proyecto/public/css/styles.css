@@ -6,6 +6,56 @@ body {
     padding: 0;
 }
 
+i{
+    font-style: normal;
+}
+
+.boton-home{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: rgb(58, 57, 57);
+    border-radius: 6px;
+    border: 2px solid #5f5f61;
+    margin-top: 2%;
+  }
+  .boton-home:hover{
+    color: white;
+    background-color: #844be0;
+  }
+
+.boton-vermas{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #844be0;
+    border-radius: 6px;
+    border: 2px solid #232324;
+    margin-top: 2%;
+    margin-left: 45%;
+    margin-right: 45%;
+  }
+
+  .boton-vermas-home{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #844be0;
+    border-radius: 6px;
+    border: 2px solid #232324;
+    margin-top: 2%;
+    margin-left: 45%;
+    margin-right: 35%;
+  }
+  
+
+
 /* diseño del header*/
     .barraNav ul li {
         list-style: none;

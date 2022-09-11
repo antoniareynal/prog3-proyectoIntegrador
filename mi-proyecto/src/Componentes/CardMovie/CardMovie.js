@@ -7,7 +7,7 @@ class CardMovie extends Component{
     super(props);
     this.state={
         verMas: false,
-        favsMessage: 'Agregar a favoritos',
+        favsMessage: 'Add to favorites',
         
     }}
 
@@ -73,7 +73,7 @@ class CardMovie extends Component{
                         <img src={`https://image.tmdb.org/t/p/w200/${this.props.movieData.poster_path}`} alt=""/>
                     </div>
                     <p>{this.props.movieData.release_date}</p>
-                    <button onClick = {() => this.showCard()}><i className="fas fa-plus-circle">See more</i></button>
+                    <button className="boton-home"onClick = {() => this.showCard()}><i className="fas fa-plus-circle">Description</i></button>
                     {
                         this.state.verMas ?
                         <p>{this.props.movieData.overview}</p>
@@ -81,7 +81,7 @@ class CardMovie extends Component{
                         <></>
                     }
                     <br></br>
-                    <button onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><i className="fas fa-plus-circle">{this.state.favsMessage}</i></button>
+                    <button className ="boton-home"onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><i className="fas fa-plus-circle">{this.state.favsMessage}</i></button>
 
                 </article>
             </React.Fragment>

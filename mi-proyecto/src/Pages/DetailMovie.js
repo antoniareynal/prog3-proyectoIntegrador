@@ -57,7 +57,7 @@ class DetailMovie extends Component{
                 
                 <React.Fragment>
                     <section>
-                        <h1 className="tituloPrincipal">Detalle de películas</h1>
+                        <h1 className="tituloPrincipal">Detail Movie</h1>
                     </section>
 
                     <section className="peliculasSeriesDetalle">
@@ -76,7 +76,7 @@ class DetailMovie extends Component{
                         <p className="genero"> Género: {this.state.movieDetail.genres[0].name}</p>
                         <hr className="linea"/>
                             <p className="overview">{this.state.movieDetail.overview} </p>
-                            <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage}/></button>
+                            <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='foto-fav'/></button>
                     </article>
                     </section>
                 </React.Fragment>

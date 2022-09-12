@@ -66,7 +66,7 @@ class CardMovie extends Component{
             <React.Fragment>
                 
                     <article>
-                    <Link to={`/detail/id/${this.props.movieData.id}`}>
+                    <Link to={`/detail/id/${this.props.movieData.id}`} className='linkTo'>
                     <h3>{this.props.movieData.title}</h3>
         
                     <div className="photo-container">
@@ -74,14 +74,14 @@ class CardMovie extends Component{
                     </div>
                     </Link>
                     <p>{this.props.movieData.release_date}</p>
-                    <button className="boton-fav"onClick = {() => this.showCard()}><img className= "fotoMas" src='/img/plus.png'/></button>
+                    <button className="boton-fav"onClick = {() => this.showCard()}><img className= "fotoMas" src='/img/plus.png' alt='foto-mas'/></button>
                     {
                         this.state.verMas ?
                         <p>{this.props.movieData.overview}</p>
                         :
                         <></>
                     }
-                    <button className ="boton-fav"onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage}/></button>
+                    <button className ="boton-fav"onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
 
                 </article>
               

@@ -49,12 +49,14 @@ render(){
              <Formulariofiltro peliculasFiltradas={(Filtro)=>this.peliculasFiltradas(Filtro)}/>
         </div>
 
+        
         <h1 className="tituloPrincipal">Upcoming Movies</h1>
+        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
         <section className="peliculasSeries peliculasP">
                 {this.state.upMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
         </section>
 
-        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
+       
 
 
         </React.Fragment>

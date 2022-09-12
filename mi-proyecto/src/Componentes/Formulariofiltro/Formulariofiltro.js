@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Formulario extends Component {
+class Formulariofiltro extends Component {
     super(){
         this.state = {
             valor: ''

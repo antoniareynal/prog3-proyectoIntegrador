@@ -22,4 +22,4 @@ class Formulario extends Component{
     }
 }
 
-export default Form;
+export default Formulario;

@@ -28,7 +28,7 @@ verMas(){
         .then(response => response.json())
         .then(data => this.setState(
             {pMovies: data.results.concat(this.state.pMovies),
-            morepMovies: data.results.concat(this.state.morepMovies)}
+                morepMovies: data.results.concat(this.state.morepMovies)}
         ))
         .catch(error => console.log(error));
         this.setState({
@@ -43,12 +43,12 @@ render(){
         <React.Fragment>
             
         <h1 className="tituloPrincipal">Popular Movies</h1>
+        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
         <section className="peliculasSeries peliculasP">
                 {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
 
 
-        <button className="boton-vermas"onClick={()=> this.verMas()}>Load more</button>
 
     
 

@@ -19,8 +19,20 @@ i{
     background-color: rgb(58, 57, 57);
     border-radius: 6px;
     border: 2px solid #5f5f61;
-    margin-top: 2%;
+    margin-top: 5%;
+    margin-right: 3%;
+    margin-left: 2%;
+    justify-content: space-around;
   }
+  .fotoFav{
+      max-width: 32px;
+      margin-top: 12px;
+  }
+  .fotoMas {
+    max-width: 25px;
+    margin-top: 12px;
+  }
+
   .boton-home:hover{
     color: white;
     background-color: #844be0;
@@ -46,12 +58,23 @@ i{
     font-weight: 400;
     font-size: 20px;
     color: #ffffff;
-    background-color: #844be0;
+    background-color: rgb(58, 57, 57);
     border-radius: 6px;
     border: 2px solid #232324;
     margin-top: 2%;
     margin-left: 45%;
     margin-right: 35%;
+  }
+
+  .boton-vermas-home:hover{
+    color: white;
+    background-color: #844be0;
+  }
+
+
+  .boton-fav{
+    background-color: black;
+    border: none;
   }
   
 

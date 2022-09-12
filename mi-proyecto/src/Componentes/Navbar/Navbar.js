@@ -5,7 +5,7 @@ function Navbar(){
     return (
         <nav className="headerDesktop">
             <div className="novaLogo">
-                <img src="./img/novaLogo.png" alt="Logo NOVA"/>
+            <Link to='/'> <img src="./img/novaLogo.png" alt="Logo NOVA"/></Link>
             </div>
 
             <div className="menuDesktop">

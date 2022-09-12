@@ -7,6 +7,7 @@ import Footer from "./Componentes/Footer/Footer"
 import Navbar from './Componentes/Navbar/Navbar'
 import Home from './Pages/Home'
 import DetailMovie from './Pages/DetailMovie'
+import SearchResults from './Pages/SearchResults'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/upcomingmovies' exact component={UpcomingMovies}/>
           <Route path='/detail/id/:id' exact component={DetailMovie}/>
           {/* <Route path='/favoritos' component={Favoritos}/> */}
+          <Route path='/searchresults' exact component={SearchResults}/>
         
       </Switch>
       <Footer/>

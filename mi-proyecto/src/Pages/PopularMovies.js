@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
+import Formulariofiltro from '../Componentes/Formulariofiltro/Formulariofiltro';
 
 class PopularMovies extends Component {
     constructor(){
@@ -37,11 +38,22 @@ verMas(){
         
 }
 
+filtrarPeliculas(Filtro){
+    let peliculasFiltradas = this.state.popularMovies.filter ( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
+    this.setState({
+        popularMovies2: peliculasFiltradas,
+    })
+}
+
 render(){
     return(
         
         <React.Fragment>
             
+        <div className='busquedaPelis'>
+             <Formulariofiltro peliculasFiltradas={(Filtro)=>this.peliculasFiltradas(Filtro)}/>
+        </div>
+
         <h1 className="tituloPrincipal">Popular Movies</h1>
         <section className="peliculasSeries peliculasP">
                 {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}

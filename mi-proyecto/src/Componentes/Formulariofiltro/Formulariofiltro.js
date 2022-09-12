@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 
 class Formulariofiltro extends Component {
-    super(){
+    constructor(props){
+        super(props)
         this.state = {
             valor: ''
         };
     };
 
-prevenirRecarga(event){
+evitarSubmit(event){
     event.preventDefault();
 };
 
 guardarCambios(event){
-    this.setState({valor: event.target.value}, () => this.props.filtro(this.state.valor))
+    this.setState({
+        input: event.target.value
+    })
 };
 
 render(){
-    <form onSubmit={(e) => this.evitarRecarga(e)}>
-    <input type={'text'} onChange={(e) => this.guardarCambios(e)} value={this.state.valor}/>
-    </form>
+    return(
+    <form onSubmit={(e)=>this.evitarSubmit(e)}>
+        <input type='text' placeholder='Search' onChange={(e) => this.guardarCambios(e)} value={this.state.input}/>
+    </form>)
 };
 }
 

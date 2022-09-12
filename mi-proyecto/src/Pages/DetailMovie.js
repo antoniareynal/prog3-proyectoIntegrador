@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CardDetail from '../Componentes/CardDetail/CardDetail'
+
 
 
 class DetailMovie extends Component{
@@ -7,7 +7,8 @@ class DetailMovie extends Component{
         super(props);
         this.state = {
             id: this.props.match.params.id,
-            movieDetail: []
+            movieDetail: {},
+            favsMessage: '/img/favorite.png'
         }
     };
 
@@ -19,18 +20,67 @@ class DetailMovie extends Component{
         ))
 
     }
-    
-    render(){
-        return (
-            <React.Fragment>
-                <section>
-                    <h1 class="tituloPrincipal">Detalle de películas</h1>
-                </section>
+    agregarYQuitarDeFavoritos(id){
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos')
 
-                <section class="peliculasSeriesDetalle">
-                    {this.state.movieDetail.map((detail, idx) => <CardDetail key ={ detail + idx} detailData = {detail}/>)}
-                </section> 
-           </React.Fragment>
+        if(recuperoStorage !== null){
+            let favoritosToArray = JSON.parse(recuperoStorage);
+            favoritos = favoritosToArray
+        }
+
+    
+        if(favoritos.includes(id)){ 
+            favoritos = favoritos.filter(unId => unId !== id);
+            this.setState({
+                favsMessage: '/img/favorite.png'
+            })
+        } else {
+            favoritos.push(id);
+            this.setState({
+                favsMessage: '/img/favorite2.png'
+            })
+        }
+
+        let favoritosToString = JSON.stringify(favoritos);
+        localStorage.setItem('favoritos', favoritosToString);
+
+        console.log(localStorage);
+    }
+    render(){
+        console.log(this.state.movieDetail);
+        console.log(this.props.match.params.id);
+        return (
+            
+                this.state.movieDetail.genres === undefined ?
+                <p> Cargando... </p> :
+                
+                <React.Fragment>
+                    <section>
+                        <h1 className="tituloPrincipal">Detalle de películas</h1>
+                    </section>
+
+                    <section className="peliculasSeriesDetalle">
+                    <article className="photo-container">
+                        <img src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}`} alt="" className="fotoDetail" />
+                    </article>
+                    <article className="datos">
+                        <h3 className="tituloDetail">{this.state.movieDetail.original_title}</h3>
+                        <hr className="linea" />
+                        <p className="rating">{this.state.movieDetail.vote_average} </p>
+                        <hr className="linea" />
+                        <p className="first_air_date">{this.state.movieDetail.release_date}</p>
+                        <hr className="linea" />
+                        <p className="duracion"> {this.state.movieDetail.runtime} min</p>
+                        <hr className="linea" />
+                        <p className="genero"> Género: {this.state.movieDetail.genres[0].name}</p>
+                        <hr className="linea"/>
+                            <p className="overview">{this.state.movieDetail.overview} </p>
+                            <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage}/></button>
+                    </article>
+                    </section>
+                </React.Fragment>
+            
         )
     }
 }

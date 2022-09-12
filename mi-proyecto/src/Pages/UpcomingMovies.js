@@ -5,27 +5,38 @@ class upcomingMovies extends Component {
     constructor(){
         super();
         this.state = {
+            page: 1,
             upMovies: [],
+            moreMovies: []
            
         }
     }
 
 componentDidMount(){
-    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=1')
+    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
         .then(response => response.json())
         .then(data => this.setState(
-            {upMovies: data.results}
+            {upMovies: data.results,
+            moreMovies: data.results,
+            page: this.state.page + 1}
         )).catch(error => console.log(error));
  
     }
 
 verMas(){
-    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=2')
+    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
         .then(response => response.json())
-        .then(data => this.setState({upMovies: data.results}
+        .then(data => this.setState(
+        {
+            upMovies: data.results.concat(this.state.upMovies),
+            moreMovies: data.results.concat(this.state.moreMovies)
+        }
         ))
         .catch(error => console.log(error));
+        this.setState({page: this.state.page+1})
 }
+
+
 
 render(){
     return(

@@ -13,17 +13,6 @@ class upcomingMovies extends Component {
         }
     }
 
-componentDidMount(){
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
-        .then(response => response.json())
-        .then(data => this.setState(
-            {upMovies: data.results,
-            moreMovies: data.results,
-            page: this.state.page + 1}
-        )).catch(error => console.log(error));
- 
-    }
-
 verMas(){
     fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
         .then(response => response.json())
@@ -37,12 +26,20 @@ verMas(){
         this.setState({page: this.state.page+1})
 }
 
-filtrarPeliculas(Filtro){
-    let peliculasFiltradas = this.state.popularMovies.filter ( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
-    this.setState({
-        popularMovies2: peliculasFiltradas,
-    })
-}
+componentDidMount(){
+    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
+        .then(response => response.json())
+        .then(data => this.setState(
+            {upMovies: data.results,
+            moreMovies: data.results,
+            page: this.state.page + 1}
+        )).catch(error => console.log(error));
+ 
+    }
+
+
+
+
 
 render(){
     return(
@@ -57,7 +54,7 @@ render(){
                 {this.state.upMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
         </section>
 
-        <button className="boton-vermas"onClick={()=> this.verMas()}>Load more</button>
+        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
 
 
         </React.Fragment>

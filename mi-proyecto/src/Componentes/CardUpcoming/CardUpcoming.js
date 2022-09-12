@@ -8,7 +8,7 @@ class CardUpcoming extends Component{
     this.state={
         valor: [],
         verMas: false,
-        favsMessage: './img/favorite.png',
+        favsMessage: '/img/favorite.png',
 
     }
     }
@@ -27,12 +27,12 @@ class CardUpcoming extends Component{
             favoritos = favoritos.filter(unId => unId !== id);
 
             this.setState({
-                favsMessage: './img/favorite.png'
+                favsMessage: '/img/favorite.png'
             })
         } else {
             favoritos.push(id);
             this.setState({
-                favsMessage: './img/favorite2.png'
+                favsMessage: '/img/favorite2.png'
             })
         }
 

@@ -46,7 +46,7 @@ class Home extends Component{
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
                 </section>
 
-               <Link to='/popularmovies'> <button className="boton-vermas-home"> See all popular movies</button></Link>
+               <Link to='/popularmovies' className="link"> <button className="boton-vermas-home"> See all popular movies</button></Link>
 
                 <h1 className="tituloPrincipal">Upcoming Movies</h1>
                     <section className="peliculasSeries peliculasP">

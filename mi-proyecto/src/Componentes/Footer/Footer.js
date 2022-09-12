@@ -11,9 +11,9 @@ function Footer(){
                 <li><a href="https://www.linkedin.com/in/maria-vaccario-833439212/" target="_blanck">Maria Vaccario</a></li>
             </ul> 
             
-            <a href="https://www.themoviedb.org/?language=es" target="_blanck" className="tmdbLogoFooterMobile"><img src="./img/tmdb_logo.svg" alt="TMDB Logo"/></a>
+            <a href="https://www.themoviedb.org/?language=es" target="_blanck" className="tmdbLogoFooterMobile"><img src="/img/tmdb_logo.svg" alt="TMDB Logo"/></a>
 
-            <a href="https://www.themoviedb.org/?language=es" target="_blanck" className="tmdbLogoDesktop"><img src="./img/tmdb_logo_desktop.svg" alt="TMDB Logo"/></a>
+            <a href="https://www.themoviedb.org/?language=es" target="_blanck" className="tmdbLogoDesktop"><img src="/img/tmdb_logo_desktop.svg" alt="TMDB Logo"/></a>
             </div>
         </React.Fragment>
     );

@@ -27,46 +27,7 @@ class Favoritos extends Component {
                     ))
                     .catch(error => console.log(error))
             })} 
-            // for(let i = 0; i < favoritosToArray.length; i++){
-            //     fetch(`https://api.themoviedb.org/3/movie/${favoritosToArray[i]}?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
-            //         .then(response => response.json())
-            //         .then(data => {
-            //             peliculasFavoritas.push(data);
-            //             this.setState(
-            //                 {peliculasFav: peliculasFavoritas}
-            //             )
-            //         })
-            //         .catch(error => console.log(error))
-            // }
         };
-    
-
-    agregarYQuitarDeFavoritos(id){
-        let favoritos = [];
-        let recuperoStorage = localStorage.getItem('favoritos')
-
-        if(recuperoStorage !== null){
-            let favoritosToArray = JSON.parse(recuperoStorage);
-            favoritos = favoritosToArray
-        }
-
-    
-        if(favoritos.includes(id)){ 
-            favoritos = favoritos.filter(unId => unId !== id);
-            this.setState({
-                favsMessage: '/img/favorite.png'
-            })
-        } else {
-            favoritos.push(id);
-            this.setState({
-                favsMessage: '/img/favorite2.png'
-            })
-        }
-
-        let favoritosToString = JSON.stringify(favoritos);
-        localStorage.setItem('favoritos', favoritosToString);
-
-    }
 
     borrar(id){
         let peliculasFiltradas = this.state.peliculasFav.filter(oneMovie => oneMovie.id !== id);

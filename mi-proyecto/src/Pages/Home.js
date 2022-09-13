@@ -50,7 +50,7 @@ class Home extends Component{
 
                 <h1 className="tituloPrincipal">Upcoming Movies</h1>
                     <section className="peliculasSeries peliculasP">
-                            {this.state.upcomingMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
+                            {this.state.upcomingMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
                     </section>
                 
                    <Link to ='/upcomingmovies'> <button className="boton-vermas-home"> See all upcoming movies</button></Link>

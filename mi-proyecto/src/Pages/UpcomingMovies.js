@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming';
 import Formulariofiltro from '../Componentes/Formulariofiltro/Formulariofiltro';
+import CardMovie from '../Componentes/CardMovie/CardMovie';
 
 class upcomingMovies extends Component {
     constructor(){
@@ -53,7 +54,7 @@ render(){
         <h1 className="tituloPrincipal">Upcoming Movies</h1>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
         <section className="peliculasSeries peliculasP">
-                {this.state.upMovies.map((oneMovie, idx) => <CardUpcoming key ={ oneMovie + idx} upcomingData = {oneMovie}/>)}
+                {this.state.upMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
 
        

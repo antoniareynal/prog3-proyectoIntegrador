@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 
-class CardMovie extends Component{
+class CardFavoritos extends Component{
     constructor(props){
     super(props);
     this.state={
@@ -27,7 +27,7 @@ class CardMovie extends Component{
             })
         }}
 
-    agregarYQuitarDeFavoritos(id){
+    QuitarDeFavoritos(id){
         let favoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos')
 
@@ -35,24 +35,19 @@ class CardMovie extends Component{
             let favoritosToArray = JSON.parse(recuperoStorage);
             favoritos = favoritosToArray
         }
-
     
         if(favoritos.includes(id)){ 
             favoritos = favoritos.filter(unId => unId !== id);
             this.setState({
                 favsMessage: '/img/favorite.png'
             })
-        } else {
-            favoritos.push(id);
-            this.setState({
-                favsMessage: '/img/favorite2.png'
-            })
-        }
+        } 
 
         let favoritosToString = JSON.stringify(favoritos);
         localStorage.setItem('favoritos', favoritosToString);
 
         console.log(localStorage);
+
     }
     showCard(){
         this.setState({
@@ -81,7 +76,7 @@ class CardMovie extends Component{
                         :
                         <></>
                     }
-                    <button className ="boton-fav"onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
+                    <button className ="boton-fav" onClick={()=>this.QuitarDeFavoritos(this.props.movieData.id)} onClick={()=>this.props.borrar(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
 
                 </article>
               
@@ -91,4 +86,4 @@ class CardMovie extends Component{
 
 }
 
-export default CardMovie;
+export default CardFavoritos;

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
-import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming'
 import Formulario from '../Componentes/Formulario/Formulario';
 import {Link} from 'react-router-dom';
 

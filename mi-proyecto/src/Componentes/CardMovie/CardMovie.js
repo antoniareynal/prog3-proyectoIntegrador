@@ -25,7 +25,13 @@ class CardMovie extends Component{
             this.setState({
                 favsMessage: '/img/favorite2.png'
             })
-        }}
+        }
+        else{
+            this.setState({
+                favsMessage: '/img/favorite.png'
+        })}
+    }
+        
 
     agregarYQuitarDeFavoritos(id){
         let favoritos = [];
@@ -54,6 +60,8 @@ class CardMovie extends Component{
 
         console.log(localStorage);
     }
+
+
     showCard(){
         this.setState({
             verMas: !this.state.verMas
@@ -81,7 +89,7 @@ class CardMovie extends Component{
                         :
                         <></>
                     }
-                    <button className ="boton-fav"onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
+                    <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
 
                 </article>
               

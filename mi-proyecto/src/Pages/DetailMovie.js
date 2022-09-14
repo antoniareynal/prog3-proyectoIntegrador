@@ -79,13 +79,13 @@ class DetailMovie extends Component{
                         <h3 className="tituloDetail">{this.state.movieDetail.original_title}</h3>
                         
                         <hr className="linea" />
-                        <p className="rating">{this.state.movieDetail.vote_average} </p>
+                        <p className="rating" >Rating: {this.state.movieDetail.vote_average} </p>
                         <hr className="linea" />
-                        <p className="first_air_date">{this.state.movieDetail.release_date}</p>
+                        <p className="first_air_date"> Realese date: {this.state.movieDetail.release_date}</p>
                         <hr className="linea" />
-                        <p className="duracion"> {this.state.movieDetail.runtime} min</p>
+                        <p className="duracion"> Duration: {this.state.movieDetail.runtime} min</p>
                         <hr className="linea" />
-                        <p className="genero"> Género: {this.state.movieDetail.genres[0].name}</p>
+                        <p className="genero"> Genre: {this.state.movieDetail.genres[0].name}</p>
                         <hr className="linea"/>
                         <p className="overview">{this.state.movieDetail.overview} </p>
                         <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='foto-fav'/></button>

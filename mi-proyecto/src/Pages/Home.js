@@ -8,7 +8,8 @@ class Home extends Component{
     super();
     this.state = {
         moviesPopular: [],
-        upcomingMovies: []
+        upcomingMovies: [],
+        loader: true
     }
     }
 
@@ -34,11 +35,15 @@ class Home extends Component{
     render(){
         return(
             <React.Fragment>
+
                 
                 <div className='buscador'>
                 <Formulario/>
                 <Link to='/searchresults'><button className="boton-buscar"onClick={()=> this.searchresults()}>Search</button></Link>
                 </div>
+
+                {/* {this.state.loading == true ?
+                    <div className="spinner"></div>} */}
 
                 <h1 className="tituloPrincipal">Popular Movies</h1>
                 <section className="peliculasSeries peliculasP">

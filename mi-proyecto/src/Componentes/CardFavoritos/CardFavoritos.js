@@ -35,18 +35,22 @@ class CardFavoritos extends Component{
             let favoritosToArray = JSON.parse(recuperoStorage);
             favoritos = favoritosToArray
         }
+
     
         if(favoritos.includes(id)){ 
             favoritos = favoritos.filter(unId => unId !== id);
             this.setState({
                 favsMessage: '/img/favorite.png'
             })
-        } 
-
+        } else {
+            favoritos.push(id);
+            this.setState({
+                favsMessage: '/img/favorite2.png'
+            })
+        }
+        
         let favoritosToString = JSON.stringify(favoritos);
         localStorage.setItem('favoritos', favoritosToString);
-
-        console.log(localStorage);
 
     }
     showCard(){
@@ -76,8 +80,8 @@ class CardFavoritos extends Component{
                         :
                         <></>
                     }
-                    <button className ="boton-fav" onClick={()=>this.QuitarDeFavoritos(this.props.movieData.id)} onClick={()=>this.props.borrar(this.props.movieData.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
-
+                    <button className ="boton-fav" onClick={()=>{this.QuitarDeFavoritos(this.props.movieData.id);this.props.borrar(this.props.movieData.id)}}><img className="fotoFav" src ={this.state.favsMessage} alt='boton-mas'/></button>
+                    
                 </article>
               
             </React.Fragment>

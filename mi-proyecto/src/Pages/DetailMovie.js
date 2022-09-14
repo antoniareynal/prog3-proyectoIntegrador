@@ -8,16 +8,27 @@ class DetailMovie extends Component{
         this.state = {
             id: this.props.match.params.id,
             movieDetail: {},
-            favsMessage: '/img/favorite.png'
+            favsMessage: ''
         }
     };
 
-    componentDidMount(){
+    componentDidMount(id){
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
         .then(response => response.json())
         .then(data => this.setState(
             {movieDetail: data}
         ))
+        let recuperoStorage = localStorage.getItem('favoritos')
+
+        if(recuperoStorage.includes(this.state.id)){
+            this.setState({
+                favsMessage: '/img/favorite2.png'
+            })
+        }
+        else{
+            this.setState({
+                favsMessage: '/img/favorite.png'
+        })}
 
     }
     agregarYQuitarDeFavoritos(id){
@@ -66,17 +77,18 @@ class DetailMovie extends Component{
                     </article>
                     <article className="datos">
                         <h3 className="tituloDetail">{this.state.movieDetail.original_title}</h3>
+                        
                         <hr className="linea" />
-                        <p className="rating">{this.state.movieDetail.vote_average} </p>
+                        <p className="rating" >Rating: {this.state.movieDetail.vote_average} </p>
                         <hr className="linea" />
-                        <p className="first_air_date">{this.state.movieDetail.release_date}</p>
+                        <p className="first_air_date"> Realese date: {this.state.movieDetail.release_date}</p>
                         <hr className="linea" />
-                        <p className="duracion"> {this.state.movieDetail.runtime} min</p>
+                        <p className="duracion"> Duration: {this.state.movieDetail.runtime} min</p>
                         <hr className="linea" />
-                        <p className="genero"> Género: {this.state.movieDetail.genres[0].name}</p>
+                        <p className="genero"> Genre: {this.state.movieDetail.genres[0].name}</p>
                         <hr className="linea"/>
-                            <p className="overview">{this.state.movieDetail.overview} </p>
-                            <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='foto-fav'/></button>
+                        <p className="overview">{this.state.movieDetail.overview} </p>
+                        <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='foto-fav'/></button>
                     </article>
                     </section>
                 </React.Fragment>

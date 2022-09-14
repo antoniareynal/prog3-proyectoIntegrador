@@ -9,40 +9,42 @@ class upcomingMovies extends Component {
         this.state = {
             page: 1,
             upMovies: [],
-            moreMovies: []
-           
+            favsMessage: '/img/favorite.png'
         }
     }
 
-verMas(){
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
-        .then(response => response.json())
-        .then(data => this.setState(
-        {
-            upMovies: data.results.concat(this.state.upMovies),
-            moreMovies: data.results.concat(this.state.moreMovies)
-        }
-        ))
-        .catch(error => console.log(error));
-        this.setState({page: this.state.page+1})
-}
-
-componentDidMount(){
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
-        .then(response => response.json())
-        .then(data => this.setState(
-            {upMovies: data.results,
-            moreMovies: data.results,
-            page: this.state.page + 1}
-        )).catch(error => console.log(error));
- 
+    componentDidMount(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
+            .then(response => response.json())
+            .then(data => this.setState(
+                {
+                upMovies: data.results,
+                page: this.state.page + 1
+            }
+            )).catch(error => console.log(error));
+    
     }
 
+<<<<<<< HEAD
     filtrarPeliculas(Filtro){ 
         let peliculasFiltradas = this.state.upMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
         this.setState({
             moreMovies: peliculasFiltradas,
         })
+=======
+    verMas(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
+            .then(response => response.json())
+            .then(data => this.setState(
+            {
+                upMovies: this.state.upMovies.concat(data.results),
+                
+            },
+            
+            ))
+            .catch(error => console.log(error));
+            this.setState({page: this.state.page+1})    
+>>>>>>> 23d6f574457a496d02b0b0074138e6ffe13c39c0
     }
 
 
@@ -55,13 +57,12 @@ render(){
              <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
 
-        
         <h1 className="tituloPrincipal">Upcoming Movies</h1>
-        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
+        
         <section className="peliculasSeries peliculasP">
                 {this.state.upMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
-
+        <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
        
 
 

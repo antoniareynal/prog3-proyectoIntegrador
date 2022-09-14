@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming';
-import Formulariofiltro from '../Componentes/Formulariofiltro/Formulariofiltro';
 import CardMovie from '../Componentes/CardMovie/CardMovie';
+import Formulariofiltro from '../Componentes/Formulariofiltro/Formulariofiltro';
+
 
 class upcomingMovies extends Component {
     constructor(){
@@ -38,7 +38,12 @@ componentDidMount(){
  
     }
 
-
+    filtrarPeliculas(Filtro){ 
+        let peliculasFiltradas = this.state.upMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
+        this.setState({
+            moreMovies: peliculasFiltradas,
+        })
+    }
 
 
 
@@ -46,8 +51,8 @@ render(){
     return(
         <React.Fragment>
 
-        <div className='busquedaPelis'>
-             <Formulariofiltro peliculasFiltradas={(Filtro)=>this.peliculasFiltradas(Filtro)}/>
+        <div className='busquedaPelisFiltro'>
+             <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
 
         

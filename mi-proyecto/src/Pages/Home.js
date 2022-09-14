@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import CardMovie from '../Componentes/CardMovie/CardMovie'
-import CardUpcoming from '../Componentes/CardUpcoming/CardUpcoming'
 import Formulario from '../Componentes/Formulario/Formulario';
 import {Link} from 'react-router-dom';
 
@@ -36,9 +35,8 @@ class Home extends Component{
         return(
             <React.Fragment>
                 
-                <div className='buscador'>
+                <div className='busquedaPelisFiltro'>
                 <Formulario/>
-                <Link to='/searchresults'><button className="boton-buscar"onClick={()=> this.searchresults()}>Search</button></Link>
                 </div>
 
                 <h1 className="tituloPrincipal">Popular Movies</h1>

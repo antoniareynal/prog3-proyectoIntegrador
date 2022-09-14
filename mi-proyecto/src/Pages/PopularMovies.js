@@ -7,8 +7,8 @@ class PopularMovies extends Component {
         super();
         this.state = {
             page: 1,
-            pMovies: [],
-            morepMovies: []
+            pMovies: [], // Todas las pelis
+            morepMovies: [] // Pelis filtradas
             
         }
     }
@@ -38,10 +38,10 @@ verMas(){
         
 }
 
-filtrarPeliculas(Filtro){
-    let peliculasFiltradas = this.state.popularMovies.filter ( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
+filtrarPeliculas(Filtro){ 
+    let peliculasFiltradas = this.state.pMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
     this.setState({
-        popularMovies2: peliculasFiltradas,
+        morepMovies: peliculasFiltradas,
     })
 }
 
@@ -50,14 +50,14 @@ render(){
         
         <React.Fragment>
             
-        <div className='busquedaPelis'>
-             <Formulariofiltro peliculasFiltradas={(Filtro)=>this.peliculasFiltradas(Filtro)}/>
+        <div className='busquedaPelisFiltro'>
+             <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
 
         <h1 className="tituloPrincipal">Popular Movies</h1>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
         <section className="peliculasSeries peliculasP">
-                {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
+                {this.state.morepMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
 
 

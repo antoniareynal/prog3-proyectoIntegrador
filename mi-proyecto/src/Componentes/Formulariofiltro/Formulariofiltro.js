@@ -4,7 +4,7 @@ class Formulariofiltro extends Component {
     constructor(props){
         super(props)
         this.state = {
-            valor: ''
+            value: ''
         };
     };
 
@@ -14,14 +14,15 @@ evitarSubmit(event){
 
 guardarCambios(event){
     this.setState({
-        input: event.target.value
-    })
+        value: event.target.value
+    }, ()=> this.props.filtrarPeliculas(this.state.value)
+    )
 };
 
 render(){
     return(
-    <form onSubmit={(e)=>this.evitarSubmit(e)}>
-        <input type='text' placeholder='Search' onChange={(e) => this.guardarCambios(e)} value={this.state.input}/>
+    <form onSubmit={(event)=>this.evitarSubmit(event)}>
+        <input type='text' placeholder='Search' onChange={(event) => this.guardarCambios(event)} value={this.state.value}/>
     </form>)
 };
 }

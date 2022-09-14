@@ -52,11 +52,6 @@ class CardFavoritos extends Component{
         let favoritosToString = JSON.stringify(favoritos);
         localStorage.setItem('favoritos', favoritosToString);
 
-        // let peliculasFiltradas = this.props.movieData.filter(oneMovie => oneMovie.id !== id);
-        // this.setState({
-        //  movieData: peliculasFiltradas
-        // })
-
     }
     showCard(){
         this.setState({

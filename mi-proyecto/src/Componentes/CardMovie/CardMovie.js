@@ -9,7 +9,7 @@ class CardMovie extends Component{
     this.state={
         verMas: false,
         favsMessage: '/img/favorite.png',
-        
+        botonD: '/img/plus.png'
     }}
 
     componentDidMount(){
@@ -64,8 +64,19 @@ class CardMovie extends Component{
 
     showCard(){
         this.setState({
-            verMas: !this.state.verMas
+        verMas: !this.state.verMas
         })
+
+        if(this.state.verMas === true){
+            this.setState({
+            botonD: '/img/plus.png',
+            })
+        }
+        else{
+            this.setState({
+                botonD: '/img/minus.png'
+            })
+        }
     }
 
 
@@ -82,7 +93,7 @@ class CardMovie extends Component{
                     </div>
                     </Link>
                     <p>{this.props.movieData.release_date}</p>
-                    <button className="boton-fav"onClick = {() => this.showCard()}><img className= "fotoMas" src='/img/plus.png' alt='foto-mas'/></button>
+                    <button className="boton-fav"onClick = {() => this.showCard()}><img className= "fotoMas" src={this.state.botonD} alt='foto-mas'/></button>
                     {
                         this.state.verMas ?
                         <p>{this.props.movieData.overview}</p>

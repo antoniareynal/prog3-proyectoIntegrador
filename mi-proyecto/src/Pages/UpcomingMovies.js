@@ -9,6 +9,7 @@ class upcomingMovies extends Component {
         this.state = {
             page: 1,
             upMovies: [],
+            moreupMovies: [],
             favsMessage: '/img/favorite.png'
         }
     }
@@ -19,6 +20,7 @@ class upcomingMovies extends Component {
             .then(data => this.setState(
                 {
                 upMovies: data.results,
+                moreupMovies: data.results,
                 page: this.state.page + 1
             }
             )).catch(error => console.log(error));
@@ -43,7 +45,7 @@ class upcomingMovies extends Component {
 filtrarPeliculas(Filtro){ 
         let peliculasFiltradas = this.state.upMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
         this.setState({
-            upMovies: peliculasFiltradas,
+            moreupMovies: peliculasFiltradas,
         })
     }
 
@@ -59,7 +61,7 @@ render(){
         <h1 className="tituloPrincipal">Upcoming Movies</h1>
         
         <section className="peliculasSeries peliculasP">
-                {this.state.upMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
+                {this.state.moreupMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
        

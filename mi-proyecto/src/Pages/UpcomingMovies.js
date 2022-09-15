@@ -9,7 +9,6 @@ class upcomingMovies extends Component {
         this.state = {
             page: 1,
             upMovies: [],
-            favsMessage: '/img/favorite.png'
         }
     }
 

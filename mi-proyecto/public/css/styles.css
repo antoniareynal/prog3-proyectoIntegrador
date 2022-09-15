@@ -313,7 +313,6 @@ nav ul.menuMobile a {
     border-left-color: transparent;
     width: 36px;
     height: 36px;
-    
     animation: spin 1s linear infinite;
   }
 

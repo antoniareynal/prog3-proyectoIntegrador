@@ -37,12 +37,12 @@ class Home extends Component{
             <React.Fragment>
 
                 
-                <div className='buscador-home'>
-                <Formulario/>
-                </div>
-
-                {/* {this.state.loading == true ?
-                    <div className="spinner"></div>} */}
+                {this.state.loading === true ?
+                    <div className="spinner"></div>:
+                    <>
+                      <div className='buscador-home'>
+                        <Formulario/>
+                        </div>
 
                 <h1 className="tituloPrincipal">Popular Movies</h1>
                 <section className="peliculasSeries peliculasP">
@@ -55,7 +55,8 @@ class Home extends Component{
                     <section className="peliculasSeries peliculasP">
                             {this.state.upcomingMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
                     </section>
-                
+                </>
+                    }
                    <Link to ='/upcomingmovies'> <button className="boton-vermas-home"> See all upcoming movies</button></Link>
 
                 

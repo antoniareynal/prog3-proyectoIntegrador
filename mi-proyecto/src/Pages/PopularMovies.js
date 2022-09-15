@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CardMovie from '../Componentes/CardMovie/CardMovie'
+import CardMovie from '../Componentes/CardMovie/CardMovie';
 import Formulariofiltro from '../Componentes/Formulariofiltro/Formulariofiltro';
 
 class PopularMovies extends Component {
@@ -8,7 +8,8 @@ class PopularMovies extends Component {
         this.state = {
             page: 1,
             pMovies: [], // Todas las pelis
-            morepMovies: []
+            morepMovies: [],
+            loading: true
             
         }
     }
@@ -20,7 +21,9 @@ class PopularMovies extends Component {
                 {
                 pMovies: data.results,
                 morepMovies: data.results,
+                loading: true,
                 page: this.state.page + 1
+
             }
             )).catch(error => console.log(error));
     
@@ -32,6 +35,8 @@ class PopularMovies extends Component {
             .then(data => this.setState(
             {
                 pMovies: this.state.pMovies.concat(data.results),
+                morepMovies:this.state.morepMovies.concat(data.results),
+                loading: false
             },
             
             ))
@@ -62,7 +67,6 @@ render(){
         
         <section className="peliculasSeries peliculasP">
                 {this.state.morepMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
-                {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
 

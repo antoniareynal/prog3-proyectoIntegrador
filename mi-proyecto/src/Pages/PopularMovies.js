@@ -14,7 +14,7 @@ class PopularMovies extends Component {
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -27,7 +27,7 @@ class PopularMovies extends Component {
     }
 
     verMas(){
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
             .then(response => response.json())
             .then(data => this.setState(
             {
@@ -62,6 +62,7 @@ render(){
         
         <section className="peliculasSeries peliculasP">
                 {this.state.morepMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
+                {this.state.pMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
 

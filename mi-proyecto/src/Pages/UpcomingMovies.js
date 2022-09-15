@@ -37,7 +37,7 @@ class upcomingMovies extends Component {
             
             ))
             .catch(error => console.log(error));
-            this.setState({page: this.state.page+1})    
+            this.setState({page: this.state.page+1})  
     }
 
 filtrarPeliculas(Filtro){ 

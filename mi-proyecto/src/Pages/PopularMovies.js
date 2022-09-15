@@ -8,7 +8,8 @@ class PopularMovies extends Component {
         this.state = {
             page: 1,
             pMovies: [], // Todas las pelis
-            morepMovies: [] // Pelis filtradas
+            morepMovies: [], // Pelis filtradas
+            
             
         }
     }
@@ -40,12 +41,15 @@ class PopularMovies extends Component {
             this.setState({page: this.state.page+1})    
     }
 
-filtrarPeliculas(Filtro){ 
-    let peliculasFiltradas = this.state.pMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
-    this.setState({
-        morepMovies: peliculasFiltradas,
-    })
-}
+    filtrarPeliculas(Filtro){ 
+        let peliculasFiltradas = this.state.pMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
+        this.setState({
+            morepMovies: peliculasFiltradas,
+        })
+    }
+
+
+
 
 render(){
     return(

@@ -42,7 +42,7 @@ class PopularMovies extends Component {
     filtrarPeliculas(Filtro){ 
         let peliculasFiltradas = this.state.pMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
         this.setState({
-            pMovies: peliculasFiltradas,
+            morepMovies: peliculasFiltradas,
         })
     }
 

@@ -6,26 +6,26 @@ class Results extends Component{
     constructor(props){
         super(props)
         this.state = {
-            moviesFound: [],
+            dataMoviesFound: [],
             search: this.props.match.params.title,
             loading: true
         }
     };  
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.props.match.params.title}`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.state.search}&page=1&include_adult=true`)
             .then(res => res.json())
-            .then(data => this.setState({moviesFound: data.results, loading: false}))
+            .then(data => this.setState({dataMoviesFound: data.results, loading: false}))
             .catch()
     };
 
     componentDidUpdate() {
         if (this.state.search !== this.props.match.params.title) {
             //Buscamos los datos de las peliculas//
-            fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.props.match.params.title}`)
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.props.match.params.title}&page=1&include_adult=true`)
                 .then(res => res.json())
                 .then(data => this.setState({
-                    moviesFound: data.results,
+                    dataMoviesFound: data.results,
                     search: this.props.match.params.title,
                     loading: false
                 }))
@@ -36,7 +36,7 @@ class Results extends Component{
     };
 
     render(){
-        console.log(this.state.moviesFound);
+        console.log(this.state.dataMoviesFound);
         return(
             <React.Fragment>
                 <div className='buscador-home'>
@@ -50,8 +50,8 @@ class Results extends Component{
                     <h1 className="tituloPrincipal">Search results</h1>
                     <section className="peliculasSeries peliculasP">
                         {
-                            this.state.moviesFound.length !== 0 ?
-                            this.state.moviesFound.map((oneMovie, idx) => <CardMovieBusqueda key={oneMovie.title + idx} dataMoviesFound={oneMovie}/>)
+                            this.state.dataMoviesFound.length !== 0 ?
+                            this.state.dataMoviesFound.map((oneMovie, idx) => <CardMovieBusqueda key={oneMovie.title + idx} dataMoviesFound={oneMovie}/>)
                             :
                             <h1 className="tituloPrincipal">No results found</h1>
                         }

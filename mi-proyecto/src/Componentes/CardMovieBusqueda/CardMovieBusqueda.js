@@ -8,7 +8,7 @@ class CardMovieSearch extends Component {
         this.state = {
             verMas: false,
             favsMessage: '/img/favorite.png',
-            botonD: '/img/plus.png'
+            botonD: '/img/plus.png',
         };
     };
 
@@ -25,7 +25,9 @@ class CardMovieSearch extends Component {
             this.setState({
                 favsMessage: '/img/favorite2.png'
             })
-        }}
+        
+        }
+    }
 
     agregarYQuitarDeFavoritos(id){
         let favoritos = [];

@@ -25,13 +25,7 @@ class upcomingMovies extends Component {
     
     }
 
-<<<<<<< HEAD
-    filtrarPeliculas(Filtro){ 
-        let peliculasFiltradas = this.state.upMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
-        this.setState({
-            moreMovies: peliculasFiltradas,
-        })
-=======
+    
     verMas(){
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=${this.state.page}`)
             .then(response => response.json())
@@ -44,9 +38,14 @@ class upcomingMovies extends Component {
             ))
             .catch(error => console.log(error));
             this.setState({page: this.state.page+1})    
->>>>>>> 23d6f574457a496d02b0b0074138e6ffe13c39c0
     }
 
+filtrarPeliculas(Filtro){ 
+        let peliculasFiltradas = this.state.upMovies.filter( pelicula => pelicula.title.toLowerCase().includes(Filtro.toLowerCase()))
+        this.setState({
+            upMovies: peliculasFiltradas,
+        })
+    }
 
 
 render(){

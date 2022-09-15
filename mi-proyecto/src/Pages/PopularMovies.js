@@ -19,6 +19,7 @@ class PopularMovies extends Component {
             .then(data => this.setState(
                 {
                 pMovies: data.results,
+                morepMovies: data.results,
                 page: this.state.page + 1
             }
             )).catch(error => console.log(error));

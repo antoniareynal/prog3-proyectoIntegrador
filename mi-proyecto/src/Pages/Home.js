@@ -25,7 +25,9 @@ class Home extends Component{
             fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&page=1')
             .then(response => response.json())
             .then(data => this.setState(
-                {upcomingMovies: data.results}
+                {upcomingMovies: data.results,
+                loader: false
+            }
             ))
             .catch(error => console.log(error));
         })
@@ -37,7 +39,7 @@ class Home extends Component{
             <React.Fragment>
 
                 
-                {this.state.loading === true ?
+                {this.state.loader === true ?
                     <div className="spinner"></div>:
                     <>
                       <div className='buscador-home'>

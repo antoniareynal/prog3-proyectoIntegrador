@@ -34,6 +34,7 @@ class upcomingMovies extends Component {
             .then(data => this.setState(
             {
                 upMovies: this.state.upMovies.concat(data.results),
+                moreupMovies:this.state.moreupMovies.concat(data.results),
                 
             },
             
@@ -62,7 +63,7 @@ render(){
         
         <section className="peliculasSeries peliculasP">
                 {this.state.moreupMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
-                {this.state.upMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
+                {/* {this.state.upMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)} */}
         </section>
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
        

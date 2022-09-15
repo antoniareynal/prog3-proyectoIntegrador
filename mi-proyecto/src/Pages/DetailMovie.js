@@ -76,7 +76,7 @@ class DetailMovie extends Component{
                         <img src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}`} alt="" className="fotoDetail" />
                     </article>
                     <article className="datos">
-                        <h3 className="tituloDetail">{this.state.movieDetail.original_title}</h3>
+                        <h3 className="tituloDetail">{this.state.movieDetail.title}</h3>
                         
                         <hr className="linea" />
                         <p className="rating" >Rating: {this.state.movieDetail.vote_average} </p>

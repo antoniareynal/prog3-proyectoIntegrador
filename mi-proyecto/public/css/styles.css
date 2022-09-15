@@ -1,5 +1,6 @@
 body {
-    background: radial-gradient(circle, rgba(63,68,251,1) 0%, rgba(208,70,252,1) 100%);
+    background: radial-gradient(circle, rgba(63,68,251,1) 0%, rgba(208,70,252,1) 100%); 
+    /* background-color: rgba(208,70,252,1); */
     font-family: 'Urbanist', sans-serif;
     color: white;
     margin: 0;
@@ -78,6 +79,55 @@ i{
     border: none;
   }
   
+  .buscador-home{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    color: rgb(255,255,255);
+    padding: 20px;
+}
+
+.buscador-home form{
+    display: flex;
+}
+
+.buscador-home form input {
+    border: none;
+    border-bottom: solid 2px rgb(255,255,255);
+    font-size: 20px;
+    color: rgb(255,255,255);
+    background-color: rgba(208,70,252,1);
+    font-weight: 600;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+::placeholder{
+    color: rgba(255,255,255,0.4);
+}
+
+.buscador-home form button {
+    border: none;
+    border-bottom: solid 2px rgb(255,255,255);
+    font-size: 20px;
+    background-color: rgba(208,70,252,1);;
+}
+
+.buscador-home form button:hover{
+    cursor: pointer;
+}
+
+.buscador-home form button i {
+    border: none;
+    color: rgb(255,255,255);
+    background-color: rgba(208,70,252,1);
+}
+
+.buscador-home h2 {
+    font-size: 25px;
+    margin: 0px 0px 0px 20px;
+}
 
   .linkTo{
       text-decoration: none;

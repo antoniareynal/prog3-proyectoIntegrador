@@ -37,7 +37,7 @@ class Home extends Component{
             <React.Fragment>
 
                 
-                <div className='busquedaPelisFiltro'>
+                <div className='buscador-home'>
                 <Formulario/>
                 </div>
 

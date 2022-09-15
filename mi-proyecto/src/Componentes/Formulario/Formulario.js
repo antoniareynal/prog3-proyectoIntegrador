@@ -19,16 +19,16 @@ class Formulario extends Component{
     }
 
     render(){
-        return(
+        return( 
             <form onSubmit={(event)=>this.evitarSubmit(event)} className='buscador'> {/* Definimos el evento onSubmit que ejecutará la función evitarSubmit(event) */}
-                <input onChange={(event)=>this.obtenerDatos(event)} type="text" placeholder='Movie' value={this.state.value}/> 
+                <input onChange={(event)=>this.obtenerDatos(event)} type="text" placeholder='Search...' value={this.state.value}/> 
 
             {
                 this.state.value ?
                     <Link to={`/searchresults/${this.state.value}`}>
-                        <input type='submit' value='submit' />
+                        <button type='submit'><i className="fa fa-search"></i></button>
                     </Link>
-                    :<input type='submit' value='submit' />
+                    :<button type='submit'><i className="fa fa-search"></i></button>
             }
                 
                 {/* Definimos el evento onChange que ejecutará la función obtenerDatos(evento) para obtener la información que el usuario ingresa en el campo */}

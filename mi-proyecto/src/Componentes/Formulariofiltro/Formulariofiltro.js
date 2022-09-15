@@ -21,8 +21,9 @@ guardarCambios(event){
 
 render(){
     return(
-    <form onSubmit={(event)=>this.evitarSubmit(event)}>
-        <input type='text' placeholder='Search' onChange={(event) => this.guardarCambios(event)} value={this.state.value}/>
+    <form onSubmit={(event)=>this.evitarSubmit(event)} className='buscador'>
+        <input type='text' placeholder='Filter' onChange={(event) => this.guardarCambios(event)} value={this.state.value}/>
+        <button type='submit'><i className="fa fa-search"></i></button>
     </form>)
 };
 }

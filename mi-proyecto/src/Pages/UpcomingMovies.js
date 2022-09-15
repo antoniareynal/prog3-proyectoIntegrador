@@ -54,7 +54,7 @@ render(){
     return(
         <React.Fragment>
 
-        <div className='busquedaPelisFiltro'>
+        <div className='buscador-home'>
              <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
 

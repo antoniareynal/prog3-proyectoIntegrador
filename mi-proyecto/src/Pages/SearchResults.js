@@ -39,7 +39,9 @@ class Results extends Component{
         console.log(this.state.moviesFound);
         return(
             <React.Fragment>
+                <div className='buscador-home'>
                 <Formulario/>
+                </div>
                 {
                     this.state.loading ?
                     <h1 className="tituloPrincipal">Loading</h1>

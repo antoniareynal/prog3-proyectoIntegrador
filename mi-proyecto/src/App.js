@@ -8,6 +8,7 @@ import Navbar from './Componentes/Navbar/Navbar'
 import Home from './Pages/Home'
 import DetailMovie from './Pages/DetailMovie'
 import SearchResults from './Pages/SearchResults'
+import Error from './Pages/Error'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/detail/id/:id' exact component={DetailMovie}/>
           <Route path='/favoritos' component={Favoritos}/>
           <Route path='/searchresults/:title' exact component={SearchResults}/>
+          <Route path='' component={Error}/>
         
       </Switch>
       <Footer/>

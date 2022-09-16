@@ -186,7 +186,19 @@ i{
         padding: 15px;
     }
 
- /* Syle formularios */
+ /* Syle error */
+.textoerror{
+    text-align: center;
+    margin: 27px;
+    font-family: 'Urbanist', sans-serif;
+}
+.cajafotoerror{
+    text-align: center;
+}
+img.imgcaratriste{
+    width: 10%;
+    
+}
     
 
  /* style titulos principales */

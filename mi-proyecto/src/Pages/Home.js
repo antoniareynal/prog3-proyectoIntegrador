@@ -39,13 +39,16 @@ class Home extends Component{
             <React.Fragment>
 
                 
-                {this.state.loader === true ?
-                    <div className="spinner"></div>:
-                    <>
+               
                       <div className='buscador-home'>
                         <Formulario/>
                         </div>
 
+                
+
+                {this.state.loader === true ?
+                    <div className="lds-dual-ring"></div>:
+                    <>
                 <h1 className="tituloPrincipal">Popular Movies</h1>
                 <section className="peliculasSeries peliculasP">
                         {this.state.moviesPopular.map((oneMovie, idx) => <CardMovie key = {oneMovie + idx} movieData = {oneMovie}/>)}
@@ -57,9 +60,11 @@ class Home extends Component{
                     <section className="peliculasSeries peliculasP">
                             {this.state.upcomingMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
                     </section>
+
+                    <Link to ='/upcomingmovies'> <button className="boton-vermas-home"> See all upcoming movies</button></Link>
                 </>
                     }
-                   <Link to ='/upcomingmovies'> <button className="boton-vermas-home"> See all upcoming movies</button></Link>
+                   
 
                 
                 
@@ -68,4 +73,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default Home

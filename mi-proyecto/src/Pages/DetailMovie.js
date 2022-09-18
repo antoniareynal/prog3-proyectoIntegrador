@@ -8,7 +8,8 @@ class DetailMovie extends Component{
         this.state = {
             id: this.props.match.params.id,
             movieDetail: {},
-            favsMessage: ''
+            favsMessage: '',
+            loader: true
         }
     };
 

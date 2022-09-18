@@ -9,7 +9,7 @@ class PopularMovies extends Component {
             page: 1,
             pMovies: [], // Todas las pelis
             morepMovies: [],
-            loading: true
+            
             
         }
     }
@@ -21,7 +21,6 @@ class PopularMovies extends Component {
                 {
                 pMovies: data.results,
                 morepMovies: data.results,
-                loading: true,
                 page: this.state.page + 1
 
             }
@@ -36,7 +35,7 @@ class PopularMovies extends Component {
             {
                 pMovies: this.state.pMovies.concat(data.results),
                 morepMovies:this.state.morepMovies.concat(data.results),
-                loading: false
+        
             },
             
             ))

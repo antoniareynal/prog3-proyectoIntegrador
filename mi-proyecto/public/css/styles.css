@@ -320,12 +320,15 @@ nav ul.menuMobile a {
     font-size: 20px;
 }
 
-.spinner {
-    border: 4px solid rgba(250, 249, 249, 0.1);
-    border-left-color: transparent;
-    width: 36px;
-    height: 36px;
-    animation: spin 1s linear infinite;
+/* .spinner {
+   
+        border: 4px solid rgba(0, 0, 0, .1);
+        border-left-color: transparent;
+        width: 36px;
+        height: 36px;
+        
+        animation: spin 1s linear infinite;
+    
   }
 
   @keyframes spin {
@@ -336,7 +339,35 @@ nav ul.menuMobile a {
     100% {
       transform: rotate(360deg);
     }
+  } */
+
+  .lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    
   }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear;
+   
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
 
 /* style detail movie */
 

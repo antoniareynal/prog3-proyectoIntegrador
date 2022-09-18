@@ -10,7 +10,8 @@ class upcomingMovies extends Component {
             page: 1,
             upMovies: [],
             moreupMovies: [],
-            favsMessage: '/img/favorite.png'
+            favsMessage: '/img/favorite.png',
+            loader: true
         }
     }
 
@@ -21,7 +22,8 @@ class upcomingMovies extends Component {
                 {
                 upMovies: data.results,
                 moreupMovies: data.results,
-                page: this.state.page + 1
+                page: this.state.page + 1,
+                loader: false
             }
             )).catch(error => console.log(error));
     
@@ -54,16 +56,25 @@ filtrarPeliculas(Filtro){
 render(){
     return(
         <React.Fragment>
+ 
+            
 
         <div className='buscador-home'>
              <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
+
+        {this.state.loader === true ?
+                    <div className="lds-dual-ring"></div>:
+                    <>
 
         <h1 className="tituloPrincipal">Upcoming Movies</h1>
         
         <section className="peliculasSeries peliculasP">
                 {this.state.moreupMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
+
+        </>
+}
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
        
 

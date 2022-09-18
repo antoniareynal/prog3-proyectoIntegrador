@@ -17,7 +17,10 @@ class DetailMovie extends Component{
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US`)
         .then(response => response.json())
         .then(data => this.setState(
-            {movieDetail: data}
+            {
+                movieDetail: data,
+                loader: false
+            }
         ))
         let recuperoStorage = localStorage.getItem('favoritos')
 
@@ -64,10 +67,15 @@ class DetailMovie extends Component{
         console.log(this.props.match.params.id);
         return (
             
-                this.state.movieDetail.genres === undefined ?
-                <p> Cargando... </p> :
+                
                 
                 <React.Fragment>
+
+                {this.state.loader === true ?
+                    <div className="lds-dual-ring"></div>:
+                    <>
+
+
                     <section>
                         <h1 className="tituloPrincipal">Detail Movie</h1>
                     </section>
@@ -92,6 +100,9 @@ class DetailMovie extends Component{
                         <button className ="boton-fav" onClick={()=>this.agregarYQuitarDeFavoritos(this.state.movieDetail.id)}><img className="fotoFav" src ={this.state.favsMessage} alt='foto-fav'/></button>
                     </article>
                     </section>
+
+                    </>
+    }
                 </React.Fragment>
             
         )

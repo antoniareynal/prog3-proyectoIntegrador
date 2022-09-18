@@ -9,6 +9,7 @@ class PopularMovies extends Component {
             page: 1,
             pMovies: [], // Todas las pelis
             morepMovies: [],
+            loader: true
             
             
         }
@@ -21,7 +22,8 @@ class PopularMovies extends Component {
                 {
                 pMovies: data.results,
                 morepMovies: data.results,
-                page: this.state.page + 1
+                page: this.state.page + 1, 
+                loader: false
 
             }
             )).catch(error => console.log(error));
@@ -62,11 +64,20 @@ render(){
              <Formulariofiltro filtrarPeliculas={(Filtro)=>this.filtrarPeliculas(Filtro)}/>
         </div>
 
+        {this.state.loader === true ?
+                    <div className="lds-dual-ring"></div>:
+                    <>
+
+        
+
         <h1 className="tituloPrincipal">Popular Movies</h1>
         
         <section className="peliculasSeries peliculasP">
                 {this.state.morepMovies.map((oneMovie, idx) => <CardMovie key ={ oneMovie + idx} movieData = {oneMovie}/>)}
         </section>
+
+        </>
+}
         <button className="boton-vermas-home"onClick={()=> this.verMas()}>Load more</button>
 
 

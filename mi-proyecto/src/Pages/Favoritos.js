@@ -6,7 +6,8 @@ class Favoritos extends Component {
         super(props);
         this.state = {
             props: props,
-            peliculasFav: []
+            peliculasFav: [],
+            loader: true
         }
     }
     componentDidMount() {
@@ -23,7 +24,8 @@ class Favoritos extends Component {
                     .then(response => response.json())
                     .then(data => peliculasFavoritas.push(data))
                     .then(()=> this.setState(
-                        {peliculasFav: peliculasFavoritas}
+                        {peliculasFav: peliculasFavoritas,
+                        loader: false}
                     ))
                     .catch(error => console.log(error))
             })} 
@@ -41,11 +43,18 @@ class Favoritos extends Component {
         console.log(this.state.storage)
         return(
             <React.Fragment>
+
+                {this.state.loader === true ?
+                    <div className="lds-dual-ring"></div>:
+                    <>
                 <h1 className = "tituloPrincipal" > This are your favorite movies: </h1>
                 <section className = "peliculasSeries peliculasFav resultadosBusqueda" >
                     {this.state.peliculasFav.map((oneMovie, idx) => < CardFavoritos key = {oneMovie + idx} movieData = {oneMovie} borrar={(id)=>this.borrar(id)}/>)}
 
                 </section> 
+
+                    </>
+    }
             </React.Fragment>
         )
     }

@@ -8,14 +8,14 @@ class Results extends Component{
         this.state = {
             dataMoviesFound: [],
             search: this.props.match.params.title,
-            loading: true
+            loader: true
         }
     };  
 
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.state.search}&page=1&include_adult=true`)
             .then(res => res.json())
-            .then(data => this.setState({dataMoviesFound: data.results, loading: false}))
+            .then(data => this.setState({dataMoviesFound: data.results, loader: false}))
             .catch()
     };
 
@@ -27,7 +27,7 @@ class Results extends Component{
                 .then(data => this.setState({
                     dataMoviesFound: data.results,
                     search: this.props.match.params.title,
-                    loading: false
+                    loader: false
                 }))
                 .catch()
         }
@@ -43,8 +43,8 @@ class Results extends Component{
                 <Formulario/>
                 </div>
                 {
-                    this.state.loading ?
-                    <h1 className="tituloPrincipal">Loading</h1>
+                    this.state.loader?
+                    <div className="lds-dual-ring"></div>
                     :
                     <>
                     <h1 className="tituloPrincipal">Search results</h1>

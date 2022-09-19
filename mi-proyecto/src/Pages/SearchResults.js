@@ -15,8 +15,13 @@ class Results extends Component{
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=1caaa22005845643c0863fd9677bc21c&language=en-US&query=${this.state.search}&page=1&include_adult=true`)
             .then(res => res.json())
-            .then(data => this.setState({dataMoviesFound: data.results, loader: false}))
-            .catch()
+            .then(data => this.setState(
+                {
+                    dataMoviesFound: data.results, 
+                    loader: false
+                }
+            ))
+            .catch(error => console.log(error));
     };
 
     componentDidUpdate() {
